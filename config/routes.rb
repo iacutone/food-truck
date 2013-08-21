@@ -1,4 +1,7 @@
 FoodTruck::Application.routes.draw do
+  resources :trucks
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
