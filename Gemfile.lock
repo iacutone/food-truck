@@ -72,6 +72,7 @@ GEM
       bundler (~> 1.0)
       rails (>= 3, < 5)
     formatador (0.2.4)
+    geocoder (1.1.6)
     guard (1.8.2)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -210,6 +211,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails
   figaro
+  geocoder
   guard-rspec
   haml-rails
   jquery-rails

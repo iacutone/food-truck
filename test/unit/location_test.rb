@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: trucks
+# Table name: locations
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  twitter    :string(255)
+#  truck_id   :integer
+#  address    :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  time       :string(255)
 #
 
 require 'test_helper'
 
-class TruckTest < ActiveSupport::TestCase
+class LocationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
