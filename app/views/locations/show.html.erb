@@ -1,0 +1,12 @@
+<div id="map-canvas"/>
+<script type="text/javascript">
+<% @location.each do |l| %>
+
+	var markerposition = new google.maps.LatLng(<%=l.latitude%>,<%=l.longitude%>);
+
+	var marker<%=l.id%> = new google.maps.Marker({
+            position:markerposition});
+
+	marker<%=l.id%>.setMap(map);
+<% end %>
+</script>

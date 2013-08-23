@@ -5,6 +5,25 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+  <script type="text/javascript"
+  	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMam5rGWt28ADYHpInbDdWfZLrETIU2hk&sensor=true">
+	</script>
+
+	<script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(40.768483, -73.981248),
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 </head>
 <body>
 

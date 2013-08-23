@@ -18,7 +18,7 @@ module Parser
 		street_one + ' & ' + street_two + ', New York, New York'
 	end
 
-	# def street_for_database
-	# 	uniq.to_s
-	# end
+	def db_format
+		uniq.to_s
+	end
 end

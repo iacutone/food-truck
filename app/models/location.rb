@@ -11,10 +11,12 @@
 #  twitter_text :string(255)
 #  street1      :string(255)
 #  street2      :string(255)
+#  latitude     :float
+#  longitude    :float
 #
 
 class Location < ActiveRecord::Base
-  attr_accessible :truck_id, :address, :time
+  attr_accessible :truck_id, :address, :time, :twitter_text, :street1, :street2, :latitude, :longitude
   geocoded_by :address
   after_validation :geocode
   

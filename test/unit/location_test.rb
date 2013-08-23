@@ -11,6 +11,8 @@
 #  twitter_text :string(255)
 #  street1      :string(255)
 #  street2      :string(255)
+#  latitude     :float
+#  longitude    :float
 #
 
 require 'test_helper'
