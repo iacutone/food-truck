@@ -1,11 +1,11 @@
 module Parser
 
 	def north_south_street(data)
-		data.scan(/53/).uniq.to_s || data.scan(/south/i).uniq.to_s
+		data.scan(/park/).db_format || data.scan(/liberty/i).db_format
 	end
 
 	def east_west_street(data)
-		data.scan(/park/i).uniq.to_s || data.scan(/liberty/i).uniq.to_s
+		data.scan(/53rd/).db_format || data.scan(/south/i).db_format
 	end 
 
 	def string_cleaner(street_one, street_two)
@@ -19,6 +19,6 @@ module Parser
 	end
 
 	def db_format
-		uniq.to_s
+		first.to_s
 	end
 end
