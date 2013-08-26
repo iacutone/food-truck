@@ -21,7 +21,7 @@ module Parser
 	end
 
 	def waffletruck_east_west_street(data)
-		data.scan(/66/).db_format 
+		data.scan(/66th/).db_format 
 	end 
 
 	def bigdsgrub_north_south_street(data)
@@ -69,7 +69,7 @@ module Parser
 	end
 
 	def taim_mobile_east_west_street(data)
-		data.scan(/20th/).db_format  
+		data.scan(/20th/).db_format && data.scan(/19th/).db_format  
 	end
 
 	def taco_bite_north_south_street(data)
@@ -135,7 +135,7 @@ module Parser
 	end
 
 	def addressable(street_one, street_two)
-		street_one + ' & ' + street_two + ', New York, New York'
+		street_one + ' & ' + street_two + ', Manhattan, NY'
 	end
 
 	def db_format

@@ -1,3 +1,50 @@
 // Place all the styles related to the locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap"; 
+
+#map-canvas { 
+	height: 500px;
+	width: 700px;
+	img {
+		max-width:none;
+	}
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	background: rgba(239, 252, 255, .4);
+}
+
+.span9 {
+	margin-top: 10px;
+}
+
+.span3 {
+	margin-top: 10px;
+	border: 1px solid rgb(155, 131, 92);
+	border-radius: 10px;
+	padding: 5px;
+	-webkit-box-shadow: 10px 10px 25px #ccc;
+          -moz-box-shadow: 10px 10px 25px #ccc;
+          box-shadow: 10px 10px 25px #ccc;
+}
+
+footer {
+	background: rgba(183, 209, 232, .6);
+	border-top: 1px solid rgb(155, 131, 92);
+	padding: 3px;
+}
+
+.gmnoprint img { 
+	max-width: none; 
+}
+
+.make_bold{
+	color: rgb(155, 131, 92);
+	font-weight: bold;
+	font-size: 20px;
+}
+
+

@@ -1,13 +1,13 @@
 <div class='container-fluid'>
 	<div class='row-fluid'>
 		<div class='span3'>
-		<%- if @location == [] %>
-		No recent tweets.
-			<%- else %>
-			Trucks:
+		<p class='make_bold'>Manhattan Food Truck Finder</p>
+		<% if @location == [] %>
+			No recent tweets.
+		<% else %>
+			Recent tweets by:
 				<ul><%- @location.each do |l| %>
 					<li><%= l.truck.name %></li>
-					</br>
 				<% end %>
 				</ul>
 			<% end %>
@@ -21,17 +21,20 @@
 					    zoom: 12,
 					    mapTypeId: google.maps.MapTypeId.ROADMAP
 					  };
+
+					  var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 						
-						<%- @location.each do |l| %>
-							var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-							var markerposition = new google.maps.LatLng(<%= l.latitude %>,<%= l.longitude %>);
+						<% @location.each do |l| %>
+
+							var markerposition = new google.maps.LatLng(<%= l.latitude %>, <%= l.longitude %>);
 
 							var marker<%= l.id %> = new google.maps.Marker({
-						            position:markerposition});
+						            position:markerposition
+						          });
 
 							marker<%= l.id %>.setMap(map);
 
-							var contentString = '<div><p>Food Truck: <%= l.truck.name %></p>' + '<p>Tweet: <%= l.twitter_text %></p>Tweeted at: <%= Time.parse(l.time).strftime('%H:%M') %></p></div>';
+							var contentString = '<div><p>Food Truck: <%= l.truck.name %></p>' + 'Tweet: <%= l.twitter_text %>'+ '<p>Tweeted at: <%= Time.parse(l.time).strftime('%H:%M') %></p></div>';
 
 				      var infowindow<%= l.id %> = new google.maps.InfoWindow({
 				      	content: contentString
@@ -39,9 +42,15 @@
 
 
 					    google.maps.event.addListener(marker<%= l.id %>, 'click', function() {
-					      infowindow<%= l.id %>.open(map,marker<%= l.id %>);
+					      infowindow<%= l.id %>.open(map, this);
+					      currentMark = this;
 
 					    });
+
+					    google.maps.event.addListener(infowindow, 'closeclick', function(event) {
+            		infowindow.close();
+
+          		});
 						<% end %>
 					}
 
