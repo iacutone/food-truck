@@ -19,6 +19,7 @@ class Location < ActiveRecord::Base
   attr_accessible :truck_id, :address, :time, :twitter_text, :street1, :street2, :latitude, :longitude
   geocoded_by :address
   after_validation :geocode
+  scope :recent, lambda { where('time >= ?', Time.now - 30.hours) }
   
 	belongs_to :truck
 end

@@ -1,34 +1,53 @@
-<div id="map-canvas"/>
-	<script type="text/javascript">
-		function initialize() {
-		  var mapOptions = {
-		    center: new google.maps.LatLng(40.768483, -73.981248),
-		    zoom: 12,
-		    mapTypeId: google.maps.MapTypeId.ROADMAP
-		  };
+<div class='container-fluid'>
+	<div class='row-fluid'>
+		<div class='span3'>
+		<%- if @location == [] %>
+		No recent tweets.
+			<%- else %>
+			Trucks:
+				<ul><%- @location.each do |l| %>
+					<li><%= l.truck.name %></li>
+					</br>
+				<% end %>
+				</ul>
+			<% end %>
+		</div>
+		<div class='span9'>
+			<div id="map-canvas">
+				<script type="text/javascript">
+					function initialize() {
+					  var mapOptions = {
+					    center: new google.maps.LatLng(40.768483, -73.981248),
+					    zoom: 12,
+					    mapTypeId: google.maps.MapTypeId.ROADMAP
+					  };
+						
+						<%- @location.each do |l| %>
+							var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+							var markerposition = new google.maps.LatLng(<%= l.latitude %>,<%= l.longitude %>);
 
-			var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-			var markerposition = new google.maps.LatLng(<%=@location.latitude%>,<%=@location.longitude%>);
+							var marker<%= l.id %> = new google.maps.Marker({
+						            position:markerposition});
 
-			var marker<%=@location.id%> = new google.maps.Marker({
-		            position:markerposition});
+							marker<%= l.id %>.setMap(map);
 
-			marker<%=@location.id%>.setMap(map);
+							var contentString = '<div><p>Food Truck: <%= l.truck.name %></p>' + '<p>Tweet: <%= l.twitter_text %></p>Tweeted at: <%= Time.parse(l.time).strftime('%H:%M') %></p></div>';
 
-			var contentString = '<div><p>Food Truck: <%= @location.truck.name %></p>' + '<p>Tweet: <%= @location.twitter_text %></p>Tweeted at: <%= Time.parse(@location.time).strftime('%H:%M') %></p></div>'
-
-      var infowindow<%=@location.id%> = new google.maps.InfoWindow({
-      	content: contentString
-      });
+				      var infowindow<%= l.id %> = new google.maps.InfoWindow({
+				      	content: contentString
+				      });
 
 
-	    google.maps.event.addListener(marker<%=@location.id%>, 'click', function() {
-	      infowindow<%=@location.id%>.open(map,marker<%=@location.id%>);
+					    google.maps.event.addListener(marker<%= l.id %>, 'click', function() {
+					      infowindow<%= l.id %>.open(map,marker<%= l.id %>);
 
-	    });
+					    });
+						<% end %>
+					}
 
-		}
-
-		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
+					google.maps.event.addDomListener(window, 'load', initialize);
+				</script>
+			</div>
+		</div>
+	</div>
 </div>
