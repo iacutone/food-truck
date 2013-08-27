@@ -6,7 +6,7 @@
 			No recent tweets.
 		<% else %>
 			Recent tweets by:
-				<ul><%- @location.each do |l| %>
+				<ul><%- @locations.each do |l| %>
 					<li><%= l.truck.name %></li>
 				<% end %>
 				</ul>
@@ -24,7 +24,7 @@
 
 					  var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 						
-						<% @location.each do |l| %>
+						<% @locations.each do |l| %>
 
 							var markerposition = new google.maps.LatLng(<%= l.latitude %>, <%= l.longitude %>);
 
@@ -34,20 +34,20 @@
 
 							marker<%= l.id %>.setMap(map);
 
-							var contentString = '<div><p>Food Truck: <%= l.truck.name %></p>' + 'Tweet: <%= l.twitter_text %>'+ '<p>Tweeted at: <%= Time.parse(l.time).strftime('%H:%M') %></p></div>';
+							var contentString = '<div><p>Food Truck: <%= l.truck.name %></br>' + 'Tweet: <%= l.twitter_text.gsub('&amp', '&') %>'+ '</br>Tweeted at: <%= time_formater(l.time).strftime('%I:%M %p') %></p></div>';
 
 				      var infowindow<%= l.id %> = new google.maps.InfoWindow({
 				      	content: contentString
 				      });
 
 
-					    google.maps.event.addListener(marker<%= l.id %>, 'click', function() {
+					    google.maps.event.addListener(marker<%= l.id %>, 'click', function(event) {
 					      infowindow<%= l.id %>.open(map, this);
 					      currentMark = this;
 
 					    });
 
-					    google.maps.event.addListener(infowindow, 'closeclick', function(event) {
+					    google.maps.event.addListener(infowindow, 'click', function(event) {
             		infowindow.close();
 
           		});

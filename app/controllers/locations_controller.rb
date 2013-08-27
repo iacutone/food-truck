@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
 	def show
-		@location = Location.recent
+		@locations = Location.recent
 	end
 end

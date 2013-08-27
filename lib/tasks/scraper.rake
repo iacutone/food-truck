@@ -25,7 +25,7 @@ namespace :twitter do
       @location.truck_id = 1
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -51,33 +51,7 @@ namespace :twitter do
       @location.truck_id = 2
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
-    end
-  end
-
-    task :waffletruck => :environment do
-    include Parser
-
-    Twitter.configure do |config|
-      config.consumer_key = ENV['TWITTER_KEY']
-      config.consumer_secret = ENV['TWITTER_SECRET']
-      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
-      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
-    end
-
-    @tweets = Twitter.search('waffletruck', since_id: :tweet_id)
-    @tweets_hash = @tweets.to_hash
-    @tweets = @tweets_hash[:statuses]
-    @tweets.each do |tweet|
-      @location = Location.new
-      @location.twitter_text = tweet[:text]
-      @location.street1 = waffletruck_north_south_street(@location.twitter_text)
-      @location.street2 = waffletruck_east_west_street(@location.twitter_text)
-      @location.time = format_time(tweet[:created_at])
-      @location.truck_id = 55
-      @location.tweet_id = tweet[:id_str]
-      @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -103,7 +77,7 @@ namespace :twitter do
       @location.truck_id = 3
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -129,7 +103,7 @@ namespace :twitter do
       @location.truck_id = 4
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -155,7 +129,7 @@ namespace :twitter do
       @location.truck_id = 6
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -181,7 +155,7 @@ namespace :twitter do
       @location.truck_id = 50
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -207,7 +181,7 @@ namespace :twitter do
       @location.truck_id = 49
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -233,7 +207,7 @@ namespace :twitter do
       @location.truck_id = 48
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -259,7 +233,7 @@ namespace :twitter do
       @location.truck_id = 47
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -285,7 +259,7 @@ namespace :twitter do
       @location.truck_id = 46
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -311,7 +285,7 @@ namespace :twitter do
       @location.truck_id = 45
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -337,7 +311,111 @@ namespace :twitter do
       @location.truck_id = 23
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :nuchas => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    @tweets = Twitter.search("NuchasNYC", since_id: :tweet_id)
+    @tweets_hash = @tweets.to_hash
+    @tweets = @tweets_hash[:statuses]
+    @tweets.each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet[:text]
+      @location.street1 = nuchas_north_south_street(@location.twitter_text)
+      @location.street2 = nuchas_east_west_street(@location.twitter_text)
+      @location.time = format_time(tweet[:created_at])
+      @location.truck_id = 35
+      @location.tweet_id = tweet[:id_str]
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :palenque => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    @tweets = Twitter.search("Palenquefood", since_id: :tweet_id)
+    @tweets_hash = @tweets.to_hash
+    @tweets = @tweets_hash[:statuses]
+    @tweets.each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet[:text]
+      @location.street1 = palenque_north_south_street(@location.twitter_text)
+      @location.street2 = palenque_east_west_street(@location.twitter_text)
+      @location.time = format_time(tweet[:created_at])
+      @location.truck_id = 37
+      @location.tweet_id = tweet[:id_str]
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :phils_steaks => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    @tweets = Twitter.search("PhilsSteaks", since_id: :tweet_id)
+    @tweets_hash = @tweets.to_hash
+    @tweets = @tweets_hash[:statuses]
+    @tweets.each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet[:text]
+      @location.street1 = phils_steaks_north_south_street(@location.twitter_text)
+      @location.street2 = phils_steaks_east_west_street(@location.twitter_text)
+      @location.time = format_time(tweet[:created_at])
+      @location.truck_id = 39
+      @location.tweet_id = tweet[:id_str]
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :rickshawbar => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    @tweets = Twitter.search("rickshawbar", since_id: :tweet_id)
+    @tweets_hash = @tweets.to_hash
+    @tweets = @tweets_hash[:statuses]
+    @tweets.each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet[:text]
+      @location.street1 = rickshawbar_north_south_street(@location.twitter_text)
+      @location.street2 = rickshawbar_east_west_street(@location.twitter_text)
+      @location.time = format_time(tweet[:created_at])
+      @location.truck_id = 41
+      @location.tweet_id = tweet[:id_str]
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -363,7 +441,7 @@ namespace :twitter do
       @location.truck_id = 43
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
@@ -389,11 +467,63 @@ namespace :twitter do
       @location.truck_id = 42
       @location.tweet_id = tweet[:id_str]
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 && @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
-  task :all => [:andysitalianice, :biandangnyc, :waffletruck, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :souvlaki_truck, :kimchi_truck, :seoul_food, :schnitz_things]
+  task :uncle_gussys => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    @tweets = Twitter.search('UncleGussys', since_id: :tweet_id)
+    @tweets_hash = @tweets.to_hash
+    @tweets = @tweets_hash[:statuses]
+    @tweets.each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet[:text]
+      @location.street1 = uncle_gussys_north_south_street(@location.twitter_text)
+      @location.street2 = uncle_gussys_east_west_street(@location.twitter_text)
+      @location.time = format_time(tweet[:created_at])
+      @location.truck_id = 53
+      @location.tweet_id = tweet[:id_str]
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :waffletruck => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    @tweets = Twitter.search('waffletruck', since_id: :tweet_id)
+    @tweets_hash = @tweets.to_hash
+    @tweets = @tweets_hash[:statuses]
+    @tweets.each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet[:text]
+      @location.street1 = waffletruck_north_south_street(@location.twitter_text)
+      @location.street2 = waffletruck_east_west_street(@location.twitter_text)
+      @location.time = format_time(tweet[:created_at])
+      @location.truck_id = 55
+      @location.tweet_id = tweet[:id_str]
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :all => [:andysitalianice, :biandangnyc, :waffletruck, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :souvlaki_truck, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas]
 end
 
 task :trucks => :environment do
