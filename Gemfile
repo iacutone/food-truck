@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'figaro'
 gem 'twitter'
 gem 'geocoder'
+gem 'skrollr-rails'
 
 group :test do
 	gem 'rspec-rails'

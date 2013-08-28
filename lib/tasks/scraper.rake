@@ -256,6 +256,167 @@ namespace :twitter do
     end
   end
 
+  task :korilla_bbq => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    Twitter.user_timeline("KorillaBBQ").each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet.text
+      @location.street1 = korilla_bbq_north_south_street(@location.twitter_text)
+      @location.street2 = korilla_bbq_east_west_street(@location.twitter_text)
+      @location.time = tweet.created_at
+      @location.truck_id = 24
+      @location.tweet_id = tweet.id
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :mexico_blvd => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    Twitter.user_timeline("MexicoBlvd").each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet.text
+      @location.street1 = mexico_blvd_north_south_street(@location.twitter_text)
+      @location.street2 = mexico_blvd_east_west_street(@location.twitter_text)
+      @location.time = tweet.created_at
+      @location.truck_id = 27
+      @location.tweet_id = tweet.id
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :mexicue => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    Twitter.user_timeline("Mexicue").each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet.text
+      @location.street1 = mexicue_north_south_street(@location.twitter_text)
+      @location.street2 = mexicue_east_west_street(@location.twitter_text)
+      @location.time = tweet.created_at
+      @location.truck_id = 28
+      @location.tweet_id = tweet.id
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :mikenwillies => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    Twitter.user_timeline("mikenwillies").each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet.text
+      @location.street1 = mikenwillies_north_south_street(@location.twitter_text)
+      @location.street2 = mikenwillies_east_west_street(@location.twitter_text)
+      @location.time = tweet.created_at
+      @location.truck_id = 29
+      @location.tweet_id = tweet.id
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :milktrucknyc => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    Twitter.user_timeline("milktrucknyc").each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet.text
+      @location.street1 = milktrucknyc_north_south_street(@location.twitter_text)
+      @location.street2 = milktrucknyc_east_west_street(@location.twitter_text)
+      @location.time = tweet.created_at
+      @location.truck_id = 30
+      @location.tweet_id = tweet.id
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :munchie_mobile => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    Twitter.user_timeline("MunchieMobileNY").each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet.text
+      @location.street1 = munchie_mobile_north_south_street(@location.twitter_text)
+      @location.street2 = munchie_mobile_east_west_street(@location.twitter_text)
+      @location.time = tweet.created_at
+      @location.truck_id = 33
+      @location.tweet_id = tweet.id
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :morristruck => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    Twitter.user_timeline("morristruck").each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet.text
+      @location.street1 = morristruck_north_south_street(@location.twitter_text)
+      @location.street2 = morristruck_east_west_street(@location.twitter_text)
+      @location.time = tweet.created_at
+      @location.truck_id = 31
+      @location.tweet_id = tweet.id
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
   task :treats_truck => :environment do
     include Parser
 
@@ -595,13 +756,13 @@ namespace :twitter do
       @location.street2 = waffletruck_east_west_street(@location.twitter_text)
       @location.time = tweet.created_at
       @location.truck_id = 55
-      @location.tweets_id = tweet.id
+      @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
       @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
 
-  task :all => [:andysitalianice, :biandangnyc, :waffletruck, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :souvlaki_truck, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven]
+  task :all => [:andysitalianice, :biandangnyc, :waffletruck, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :souvlaki_truck, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven, :korilla_bbq, :mexico_blvd, :mexicue, :mikenwillies, :milktrucknyc, :morristruck, :munchie_mobile]
 end
 
 task :trucks => :environment do

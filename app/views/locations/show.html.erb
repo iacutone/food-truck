@@ -2,7 +2,7 @@
 	<div class='row-fluid'>
 		<div class='span3'>
 		<p class='make_bold'>Manhattan Food Truck Finder</p>
-		<% if @location == [] %>
+		<% if @locations == [] %>
 			No recent tweets.
 		<% else %>
 			Recent tweets by:
@@ -24,33 +24,34 @@
 
 					  var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 						
-						<% @locations.each do |l| %>
+						<% @locations.each do |location| %>
 
-							var markerposition = new google.maps.LatLng(<%= l.latitude %>, <%= l.longitude %>);
+							var markerPosition = new google.maps.LatLng(<%= location.latitude %>, <%= location.longitude %>);
 
-							var marker<%= l.id %> = new google.maps.Marker({
-						            position:markerposition
+							var marker<%= location.id %> = new google.maps.Marker({
+						            position: markerPosition
 						          });
 
-							marker<%= l.id %>.setMap(map);
+							marker<%= location.id %>.setMap(map);
 
-							var contentString = '<div><p>Food Truck: <%= l.truck.name %></br>' + 'Tweet: <%= l.twitter_text.gsub('&amp', '&') %>'+ '</br>Tweeted at: <%= time_formater(l.time).strftime('%I:%M %p') %></p></div>';
+							var contentString = '<div><p>Food Truck: <%= location.truck.name %></br>' + 'Tweet: <%= location.twitter_text.gsub('&amp', '&') %>'+ '</br>Tweeted at: <%= time_formater(location.time).strftime('%I:%M %p') %></p></div>';
 
-				      var infowindow<%= l.id %> = new google.maps.InfoWindow({
-				      	content: contentString
+				      infowindow<%= location.id %> = new google.maps.InfoWindow({
+				      	content: contentString,
+				      	maxWidth: 200
 				      });
 
-
-					    google.maps.event.addListener(marker<%= l.id %>, 'click', function(event) {
-					      infowindow<%= l.id %>.open(map, this);
+					    google.maps.event.addListener(marker<%= location.id %>, 'click', function(event) {
+					      infowindow<%= location.id %>.open(map, this);
 					      currentMark = this;
 
 					    });
 
-					    google.maps.event.addListener(infowindow, 'click', function(event) {
-            		infowindow.close();
+					   google.maps.event.addListener(map, 'click', function() {
+            		infowindow<%= location.id %>.close();
 
           		});
+
 						<% end %>
 					}
 

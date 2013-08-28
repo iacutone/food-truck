@@ -216,6 +216,62 @@ module Parser
 		data.scan(/47th|wall|king|46th|55/i).db_format 
 	end
 
+	def korilla_bbq_north_south_street(data)
+		data.scan(/broadway|varick|park/i).db_format 
+	end
+
+	def korilla_bbq_east_west_street(data)
+		data.scan(/25th|vandam|47th/i).db_format 
+	end
+
+	def mexico_blvd_north_south_street(data)
+		data.scan(/6th/i).db_format 
+	end
+
+	def mexico_blvd_east_west_street(data)
+		data.scan(/46th/i).db_format 
+	end
+
+	def mexicue_north_south_street(data)
+		data.scan(/6th|north|5th|11th/i).db_format 
+	end
+
+	def mexicue_east_west_street(data)
+		data.scan(/45th|vesey|18th|26th/i).db_format 
+	end
+
+	def mikenwillies_north_south_street(data)
+		data.scan(/varick|bdwy|front|broadway/i).db_format 
+	end
+
+	def mikenwillies_east_west_street(data)
+		data.scan(/grand|56th|old/i).db_format 
+	end
+
+	def milktrucknyc_north_south_street(data)
+		data.scan(/north|5th|william/i).db_format 
+	end
+
+	def milktrucknyc_east_west_street(data)
+		data.scan(/vesey|20th|wall/i).db_format 
+	end
+
+	def morristruck_north_south_street(data)
+		data.scan(/park|6th|north|madison/i).db_format 
+	end
+
+	def morristruck_east_west_street(data)
+		data.scan(/29th|29|52nd|vesey|51st/i).db_format 
+	end
+
+	def munchie_mobile_north_south_street(data)
+		data.scan(/5th|north|front|varick|broadway/i).db_format 
+	end
+
+	def munchie_mobile_east_west_street(data)
+		data.scan(/17th|vesey|wall|grand|55th/i).db_format 
+	end
+
 	def string_cleaner(street_one, street_two)
 		north_south_street = street_one.gsub('[', '').gsub(']','').gsub('"', '')
 		east_west_street = street_two.gsub('[', '').gsub(']','').gsub('"', '')
