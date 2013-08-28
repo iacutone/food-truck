@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130823222058) do
+ActiveRecord::Schema.define(:version => 20130828015006) do
 
   create_table "locations", :force => true do |t|
     t.integer  "truck_id"
     t.string   "address"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "time"
     t.string   "twitter_text"
     t.string   "street1"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130823222058) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "tweet_id"
+    t.integer  "tweets_id",    :limit => 8
   end
 
   create_table "trucks", :force => true do |t|

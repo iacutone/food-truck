@@ -1,19 +1,19 @@
 module Parser
 
 	def andysitalianice_north_south_street(data)
-		data.scan(/south/i).db_format && data.scan(/broadway/i).db_format unless tommorrow_filter(data) == ''
+		data.scan(/south|broadway|park/i).db_format 
 	end
 
 	def andysitalianice_east_west_street(data)
-		data.scan(/liberty/i).db_format && data.scan(/61st/).db_format 
+		data.scan(/liberty|61|52nd/i).db_format  
 	end 
 
 	def biandangnyc_north_south_street(data)
-		data.scan(/park/i).db_format && data.scan(/north/i).db_format 
+		data.scan(/park|north/i).db_format 
 	end
 
 	def biandangnyc_east_west_street(data)
-		data.scan(/53rd/i).db_format && data.scan(/vesey/i).db_format 
+		data.scan(/53rd|vesey/i).db_format  
 	end 
 
 	def waffletruck_north_south_street(data)
@@ -21,31 +21,31 @@ module Parser
 	end
 
 	def waffletruck_east_west_street(data)
-		data.scan(/66th/).db_format 
+		data.scan(/66th/i).db_format 
 	end 
 
 	def bigdsgrub_north_south_street(data)
-		data.scan(/park/i).db_format && data.scan(/6th/).db_format 
+		data.scan(/park|6th/i).db_format 
 	end
 
 	def bigdsgrub_east_west_street(data)
-		data.scan(/52nd/).db_format && data.scan(/50th/).db_format  && data.scan(/49th/).db_format 
+		data.scan(/52nd|50th|49th/i).db_format 
 	end 
 
 	def bigdsgrub_north_south_street(data)
-		data.scan(/broadway/i).db_format && data.scan(/madison/i).db_format 
+		data.scan(/broadway|madison/i).db_format 
 	end
 
 	def bigdsgrub_east_west_street(data)
-		data.scan(/55th/).db_format && data.scan(/47th/).db_format 
+		data.scan(/55th|47th/i).db_format 
 	end 
 
 	def blend_express_north_south_street(data)
-		data.scan(/broadway/i).db_format && data.scan(/madison/i).db_format 
+		data.scan(/broadway|madison/i).db_format  
 	end
 
 	def blend_express_east_west_street(data)
-		data.scan(/55th/).db_format && data.scan(/47th/).db_format 
+		data.scan(/55th|47th/i).db_format 
 	end 
 
 	def chinese_mirch_north_south_street(data)
@@ -61,71 +61,71 @@ module Parser
 	end
 
 	def treats_truck_east_west_street(data)
-		data.scan(/87th/).db_format   
+		data.scan(/87th/i).db_format   
 	end 
 
 	def taim_mobile_north_south_street(data)
-		data.scan(/5th/).db_format 
+		data.scan(/5th/i).db_format 
 	end
 
 	def taim_mobile_east_west_street(data)
-		data.scan(/20th/).db_format && data.scan(/19th/).db_format  
+		data.scan(/20th|19th/).db_format 
 	end
 
 	def taco_bite_north_south_street(data)
-		data.scan(/broadway/i).db_format && data.scan(/park/i).db_format
+		data.scan(/broadway|park/i).db_format 
 	end
 
 	def taco_bite_east_west_street(data)
-		data.scan(/67th/).db_format  && data.scan(/38th/).db_format && data.scan(/47th/).db_format && data.scan(/53/).db_format
+		data.scan(/67th|38th|47th|53/i).db_format  
 	end
 
 	def sweetery_nyc_north_south_street(data)
-		data.scan(/hudson/i).db_format && data.scan(/park/i).db_format && data.scan(/irving/i).db_format
+		data.scan(/hudson|park|irving/i).db_format 
 	end
 
 	def sweetery_nyc_east_west_street(data)
-		data.scan(/king/i).db_format  && data.scan(/52nd/).db_format && data.scan(/15th/).db_format
+		data.scan(/king|52nd|15th/i).db_format  
 	end  
 
 	def steaks_crepes_north_south_street(data)
-		data.scan(/6th/).db_format && data.scan(/hudson/i).db_format 
+		data.scan(/6th|hudson/i).db_format 
 	end
 
 	def steaks_crepes_east_west_street(data)
-		data.scan(/50th/).db_format  && data.scan(/46th/).db_format && data.scan(/king/i).db_format
-	end 
+		data.scan(/50th|46th|king/i).db_format  
+	end
 
 	def souvlaki_truck_north_south_street(data)
-		data.scan(/park/i).db_format && data.scan(/north/i).db_format 
+		data.scan(/park|north/i).db_format  
 	end
 
 	def souvlaki_truck_east_west_street(data)
-		data.scan(/47th/).db_format  && data.scan(/vesey/i).db_format 
+		data.scan(/47th|vesey/i).db_format  
 	end
 
 	def kimchi_truck_north_south_street(data)
-		data.scan(/hudson/i).db_format && data.scan(/6th/).db_format && data.scan(/varick/i).db_format 
+		data.scan(/hudson|6th|varick/i).db_format 
 	end
 
 	def kimchi_truck_east_west_street(data)
-		data.scan(/charlton/i).db_format  && data.scan(/55/).db_format && data.scan(/grand/i).db_format 
+		data.scan(/charlton|55|grand/i).db_format  
 	end 
 
 	def seoul_food_north_south_street(data)
-		data.scan(/5th/).db_format && data.scan(/fifth/i).db_format && data.scan(/mercer/i).db_format || data.scan(/park/i).db_format 
+		data.scan(/5th|fifth|mercer|park/i).db_format 
 	end
 
 	def seoul_food_east_west_street(data)
-		data.scan(/20th/).db_format && data.scan(/18th/).db_format && data.scan(/4th/).db_format && data.scan(/47/).db_format
+		data.scan(/20th|18th|4th|47/i).db_format 
 	end 
 
 	def schnitz_things_north_south_street(data)
-		data.scan(/north/i).db_format && data.scan(/6th/).db_format && data.scan(/park/i).db_format
+		data.scan(/north|6th|park/i).db_format 
 	end
 
 	def schnitz_things_east_west_street(data)
-		data.scan(/vesey/i).db_format && data.scan(/49th/).db_format && data.scan(/51st/).db_format
+		data.scan(/vesey|49th|51st/i).db_format 
 	end       
 
 	def uncle_gussys_north_south_street(data)
@@ -145,28 +145,76 @@ module Parser
 	end  
 
 	def phils_steaks_north_south_street(data)
-		data.scan(/madison/i).db_format && data.scan(/north/i).db_format  
+		data.scan(/madison|north/i).db_format
 	end
 
 	def phils_steaks_east_west_street(data)
-		data.scan(/47th/i).db_format && data.scan(/vesey/i).db_format 
+		data.scan(/47th|vesey/i).db_format 
 	end   
 
 	def palenque_north_south_street(data)
-		data.scan(/3/i).db_format && data.scan(/north/i).db_format && data.scan(/king/i).db_format && data.scan(/park/i).db_format
+		data.scan(/3|north|king|park/i).db_format 
 	end
 
 	def palenque_east_west_street(data)
-		data.scan(/14/i).db_format && data.scan(/vesey/i).db_format && data.scan(/charlton/i).db_format && data.scan(/47/i).db_format
+		data.scan(/14|vesey|charlton|47/i).db_format 
 	end
 
 	def nuchas_north_south_street(data)
-		data.scan(/north/i).db_format && data.scan(/6th/i).db_format && data.scan(/5th/i).db_format && data.scan(/park/i).db_format
+		data.scan(/north|6th|5th|park/i).db_format 
 	end
 
 	def nuchas_east_west_street(data)
-		data.scan(/vesey/i).db_format && data.scan(/50th/i).db_format && data.scan(/20th/i).db_format && data.scan(/47/i).db_format
-	end         
+		data.scan(/vesey|50th|20th|47/i).db_format 
+	end  
+
+	def domo_taco_north_south_street(data)
+		data.scan(/north|park|broadway/i).db_format 
+	end
+
+	def domo_taco_east_west_street(data)
+		data.scan(/vesey|47th|38th|53rd/i).db_format 
+	end  
+
+	def eddies_pizza_north_south_street(data)
+		data.scan(/11th|5|3rd|hudson/i).db_format 
+	end
+
+	def eddies_pizza_east_west_street(data)
+		data.scan(/26th|46|71st|king/i).db_format 
+	end 
+
+	def fishing_shrimp_north_south_street(data)
+		data.scan(/6th|park|3rd||5th/i).db_format 
+	end
+
+	def fishing_shrimp_east_west_street(data)
+		data.scan(/50th|53rd|47th|23rd|25th/i).db_format 
+	end 
+
+	def frites_meats_north_south_street(data)
+		data.scan(/pearl|6th|north|hudson/i).db_format 
+	end
+
+	def frites_meats_east_west_street(data)
+		data.scan(/hanover|50th|vesey|king/i).db_format 
+	end
+
+	def fun_buns_north_south_street(data)
+		data.scan(/6th|madison|adams|6th/i).db_format 
+	end
+
+	def fun_buns_east_west_street(data)
+		data.scan(/50th|47th|front|48th/i).db_format 
+	end
+
+	def hibachi_heaven_north_south_street(data)
+		data.scan(/park|front|hudson|6th|broadway/i).db_format 
+	end
+
+	def hibachi_heaven_east_west_street(data)
+		data.scan(/47th|wall|king|46th|55/i).db_format 
+	end
 
 	def string_cleaner(street_one, street_two)
 		north_south_street = street_one.gsub('[', '').gsub(']','').gsub('"', '')
@@ -187,7 +235,8 @@ module Parser
 	end
 
 	def tommorrow_filter(data)
-		if data.scan(/tomorrow/i) == true
+		test = data.scan(/tomorrow/i)
+		if test == ['Tomorrow' || 'tomorrow']
 			return ''
 		end
 	end
