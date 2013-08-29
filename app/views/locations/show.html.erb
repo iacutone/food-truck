@@ -7,7 +7,7 @@
 		<% else %>
 			Recent tweets by:
 				<ul><%- @locations.sort_by(&:time).reverse.each do |l| %>
-					<li id='<%= l.id %>'><a href="javascript:void(<%= l.id %>)" rel="tooltip" class='trucks'><%= l.truck.name %>, <%= time_ago_in_words(Time.parse(l.time)) %></a></li>
+					<li id='<%= l.id %>'><a href="javascript:void(<%= l.id %>)" rel="tooltip" class='trucks'><%= l.truck.name %>, <%= time_ago_in_words(time_formater(l.time)) %></a></li>
 				<% end %>
 				</ul>
 			<% end %>
@@ -28,25 +28,38 @@
 
 							var markerPosition = new google.maps.LatLng(<%= location.latitude %>, <%= location.longitude %>);
 
+							var image = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+							
 							var marker<%= location.id %> = new google.maps.Marker({
 						            position: markerPosition,
-						            map: map
+						            map: map,
+						            icon: image
 						          });
 
-							var contentString<%= location.id %> = '<div><p>Food Truck: <%= location.truck.name %></br>' + 'Tweeted at: <%= time_formater(location.time).strftime('%I:%M %p') %></br></p></div>';
+							var contentString<%= location.id %> = '<div><p>Food Truck: <%= location.truck.name %></br>' + 'Tweeted at: <%= time_formater(location.time).strftime('%I:%M %p') %>Tweet: <%= location.twitter_text.gsub('&amp', '&') %></p></div>';
 
-				      var infowindow<%= location.id %> = new google.maps.InfoWindow({
+				      marker<%= location.id %>.infowindow = new google.maps.InfoWindow({
 				      	content: contentString<%= location.id %>,
-				      	maxWidth: 350
+				      	maxWidth: 300
 				      });
 
 					    google.maps.event.addListener(marker<%= location.id %>, 'click', function() {
-							  infowindow<%= location.id %>.open(map, marker<%= location.id %>);
+							  marker<%= location.id %>.infowindow.open(map, marker<%= location.id %>);
 							});
 
 							google.maps.event.addListener(map, 'click', function() {
-							  infowindow<%= location.id %>.close(map, marker<%= location.id %>);
+							  marker<%= location.id %>.infowindow.close(map, marker<%= location.id %>);
 							  map.setZoom(12);
+							});
+
+							$('#<%= location.id %>').mouseover(function(){
+								google.maps.event.trigger(marker<%= location.id %>, 'mouseover');
+								marker<%= location.id %>.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+							});
+
+							$('#<%= location.id %>').mouseout(function(){
+								google.maps.event.trigger(marker<%= location.id %>, 'mouseout');
+								marker<%= location.id %>.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
 							});
 
 							$('#<%= location.id %>').click(function(){
