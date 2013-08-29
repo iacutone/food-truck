@@ -16,10 +16,10 @@
 #
 
 class Location < ActiveRecord::Base
-  attr_accessible :truck_id, :address, :time, :twitter_text, :street1, :street2, :latitude, :longitude
+  # attr_accessible :truck_id, :address, :time, :twitter_text, :street1, :street2, :latitude, :longitude
   geocoded_by :address
   after_validation :geocode
-  scope :recent, lambda { where('time >= ?', Time.now - 14.hours).uniq_by(&:truck_id) }
+  scope :recent, lambda { where('time >= ?', Time.now - 5.hours).uniq_by(&:truck_id) }
   
 	belongs_to :truck
 end
