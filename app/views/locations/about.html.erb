@@ -1,22 +1,18 @@
 <div id='picture'>
-	<div class='span6'>
-		<div class='story'>
-			<p>I am a recent graduate of the Flatiron School where I learned how to build awesome web apps with Ruby on Rails.  This application is tracking the movements of Vendy Award nominated food trucks.  If you would like me to add food trucks to the database, my email is eric.iacutone@gmail.com.</p>
-			<p>That is a tasty burger! -Jules, Pulp Fiction</p>
-		</div>
+	<div class='story'>
+		<p>I am a recent graduate of the Flatiron School where I learned how to build awesome web apps with Ruby on Rails.  This application is tracking the movements of Vendy Award nominated food trucks.  If you would like me to add food trucks to the database, my email is eric.iacutone@gmail.com.</p>
+		<p>That is a tasty burger! -Jules, Pulp Fiction</p>
 	</div>
-	<div class='span6'>
-		<table>
+	<table class='truck_table'>
+		<tr>
+			<th>Truck</th>
+			<th>Twitter</th>
+		</tr>
+		<%- @trucks.each do |truck| %>
 			<tr>
-				<th>Truck</th>
-				<th>Twitter</th>
-			</tr>
-			<%- @trucks.each do |truck| %>
-				<tr>
-					<td><%= truck.name %></td>
-					<td><%= link_to truck.twitter, 'http://www.twitter.com/' + truck.twitter %></td>
-				<% end %>
-			</tr>
-		</table>
-	</div>
+				<td><%= truck.name %></td>
+				<td><%= link_to truck.twitter, 'http://www.twitter.com/' + truck.twitter %></td>
+			<% end %>
+		</tr>
+	</table>
 </div>

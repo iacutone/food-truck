@@ -18,7 +18,7 @@
 class Location < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
-  scope :recent, lambda { where('time >= ?', Time.now - 5.hours).uniq_by(&:truck_id) }
+  scope :recent, lambda { where('time >= ?', Time.now - 12.hours).uniq_by(&:truck_id) }
   
 	belongs_to :truck
 end
