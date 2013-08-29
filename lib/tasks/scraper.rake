@@ -1,5 +1,5 @@
 require 'open-uri'
-require 'nokogiri'
+# require 'nokogiri'
 require 'geocoder'
 
 namespace :twitter do
