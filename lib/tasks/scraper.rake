@@ -1,7 +1,6 @@
 require 'open-uri'
 require 'geocoder'
 require 'csv'
-require 'pry'
 
 namespace :twitter do
   task :andysitalianice => :environment do
