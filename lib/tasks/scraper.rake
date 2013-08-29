@@ -768,7 +768,7 @@ end
 task :truck_production => :environment do
   CSV.foreach('trucks.csv', :headers => true) do |row|
     @truck = Truck.new
-    @truck.truck_id = row['truck_id']
+    @truck.id = row['id']
     @truck.name = row['name']
     @truck.twitter = row['twitter']
     @truck.save
