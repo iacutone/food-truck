@@ -14,7 +14,6 @@ gem 'twitter'
 gem 'geocoder'
 gem 'whenever'
 gem 'google-analytics-rails'
-gem 'taps'
 
 group :test do
 	gem 'rspec-rails'

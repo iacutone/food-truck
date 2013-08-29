@@ -7,7 +7,7 @@
 		<% else %>
 			Recent tweets by:
 				<ul><%- @locations.sort_by(&:time).reverse.each do |l| %>
-					<li id='<%= l.id %>'><a href="javascript:void(<%= l.id %>)" class='trucks'><%= l.truck.name %>, <%= time_ago_in_words(time_formater(l.time)) %></a></li>
+					<li id='<%= l.id %>'><a href="javascript:void(<%= l.id %>)" class='trucks'><%= l.id %>, <%= time_ago_in_words(time_formater(l.time)) %></a></li>
 				<% end %>
 				</ul>
 			<% end %>
@@ -36,7 +36,7 @@
 						            icon: image
 						          });
 
-							var contentString<%= location.id %> = '<div><p>Food Truck: <%= location.truck.name %></br>' + 'Tweeted at: <%= time_formater(location.time).strftime('%I:%M %p') %>Tweet: <%= location.twitter_text.gsub('&amp', '&') %></p></div>';
+							var contentString<%= location.id %> = '<div><p>Food Truck: <%= location.truck.name %></br>' + 'Tweeted at: <%= time_formater(location.time).strftime('%I:%M %p') %></br>Tweet: <%= location.twitter_text.gsub('&amp', '&') %></p></div>';
 
 				      marker<%= location.id %>.infowindow = new google.maps.InfoWindow({
 				      	content: contentString<%= location.id %>,
