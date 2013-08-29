@@ -761,8 +761,8 @@ namespace :twitter do
       @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
-
-  task :all => [:andysitalianice, :biandangnyc, :waffletruck, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :souvlaki_truck, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven, :korilla_bbq, :mexico_blvd, :mexicue, :mikenwillies, :milktrucknyc, :morristruck, :munchie_mobile]
+  # :waffletruck and :souvlaki_truck removed
+  task :all => [:andysitalianice, :biandangnyc, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven, :korilla_bbq, :mexico_blvd, :mexicue, :mikenwillies, :milktrucknyc, :morristruck, :munchie_mobile]
 end
 
 task :trucks => :environment do

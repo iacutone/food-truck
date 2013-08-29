@@ -13,6 +13,7 @@ gem 'figaro'
 gem 'twitter'
 gem 'geocoder'
 gem 'whenever'
+gem 'google-analytics-rails'
 
 group :test do
 	gem 'rspec-rails'

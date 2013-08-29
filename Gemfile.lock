@@ -81,6 +81,7 @@ GEM
       rails (>= 3, < 5)
     formatador (0.2.4)
     geocoder (1.1.6)
+    google-analytics-rails (0.0.4)
     guard (1.8.2)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -228,6 +229,7 @@ DEPENDENCIES
   factory_girl_rails
   figaro
   geocoder
+  google-analytics-rails
   guard-rspec
   haml-rails
   jquery-rails
