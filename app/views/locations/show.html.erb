@@ -6,8 +6,8 @@
 			No recent tweets.
 		<% else %>
 			Recent tweets by:
-				<ul><%- @locations.each do |l| %>
-					<li><%= l.truck.name %></li>
+				<ul><%- @locations.sort_by(&:time).reverse.each do |l| %>
+					<li id='<%= l.id %>'><a href="javascript:void(<%= l.id %>)" class='trucks'><%= l.truck.name %>, <%= time_ago_in_words(Time.parse(l.time)) %></a></li>
 				<% end %>
 				</ul>
 			<% end %>
@@ -24,35 +24,38 @@
 
 					  var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 						
-						<% @locations.each do |location| %>
+						<%- @locations.each do |location| %>
 
 							var markerPosition = new google.maps.LatLng(<%= location.latitude %>, <%= location.longitude %>);
 
 							var marker<%= location.id %> = new google.maps.Marker({
-						            position: markerPosition
+						            position: markerPosition,
+						            map: map
 						          });
 
-							marker<%= location.id %>.setMap(map);
+							var contentString<%= location.id %> = '<div><p>Food Truck: <%= location.truck.name %></br>' + 'Tweeted at: <%= time_formater(location.time).strftime('%I:%M %p') %></br></p></div>';
 
-							var contentString = '<div><p>Food Truck: <%= location.truck.name %></br>' + 'Tweet: <%= location.twitter_text.gsub('&amp', '&') %>'+ '</br>Tweeted at: <%= time_formater(location.time).strftime('%I:%M %p') %></p></div>';
-
-				      infowindow<%= location.id %> = new google.maps.InfoWindow({
-				      	content: contentString,
-				      	maxWidth: 200
+				      var infowindow<%= location.id %> = new google.maps.InfoWindow({
+				      	content: contentString<%= location.id %>,
+				      	maxWidth: 350
 				      });
 
-					    google.maps.event.addListener(marker<%= location.id %>, 'click', function(event) {
-					      infowindow<%= location.id %>.open(map, this);
-					      currentMark = this;
+					    google.maps.event.addListener(marker<%= location.id %>, 'click', function() {
+							  infowindow<%= location.id %>.open(map, marker<%= location.id %>);
+							});
 
-					    });
+							google.maps.event.addListener(map, 'click', function() {
+							  infowindow<%= location.id %>.close(map, marker<%= location.id %>);
+							  map.setZoom(12);
+							});
 
-					   google.maps.event.addListener(map, 'click', function() {
-            		infowindow<%= location.id %>.close();
+							$('#<%= location.id %>').click(function(){
+								google.maps.event.trigger(marker<%= location.id %>, 'click');
+								map.setZoom(16);
+								map.panTo(marker<%= location.id %>.position);
+							});
 
-          		});
-
-						<% end %>
+					<% end %>
 					}
 
 					google.maps.event.addDomListener(window, 'load', initialize);

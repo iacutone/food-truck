@@ -8,7 +8,7 @@
 	height: 500px;
 	width: 700px;
 	img {
-		max-width:none;
+		max-width: none;
 	}
 }
 
@@ -49,6 +49,31 @@ footer {
 
 .link {
 	color: rgb(155, 131, 92);
+}
+
+.link:hover {
+	color: black;
+}
+
+.name {
+	color: rgb(155, 131, 92);
+}
+
+.trucks {
+	color: rgb(155, 131, 92);
+}
+
+#picture {
+	background-image: url('burger.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+.story {
+	padding: 10px;
 }
 
 

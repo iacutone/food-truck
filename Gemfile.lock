@@ -186,8 +186,6 @@ GEM
       rubyzip
       websocket (~> 1.0.4)
     simple_oauth (0.2.0)
-    skrollr-rails (0.6.11)
-      rails (>= 3.1.0)
     slop (3.4.6)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -237,7 +235,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 3.2.3)
   selenium-webdriver
-  skrollr-rails
   sqlite3
   twitter
   uglifier (>= 1.0.3)
