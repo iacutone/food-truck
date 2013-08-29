@@ -5,4 +5,18 @@
 			<p>That is a tasty burger! -Jules, Pulp Fiction</p>
 		</div>
 	</div>
+	<div class='span6'>
+		<table>
+			<tr>
+				<th>Truck</th>
+				<th>Twitter</th>
+			</tr>
+			<%- @trucks.each do |truck| %>
+				<tr>
+					<td><%= truck.name %></td>
+					<td><%= link_to truck.twitter, 'http://www.twitter.com/' + truck.twitter %></td>
+				<% end %>
+			</tr>
+		</table>
+	</div>
 </div>

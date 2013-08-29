@@ -4,9 +4,10 @@
 
 @import "bootstrap"; 
 
+$darkBlue: rgb(31, 56, 78);
+
 #map-canvas { 
-	height: 500px;
-	width: 700px;
+	height: 100%;
 	img {
 		max-width: none;
 	}
@@ -14,27 +15,14 @@
 
 body {
 	font-family: 'Open Sans', sans-serif;
-	background: rgba(239, 252, 255, .4);
-}
-
-.span9 {
-	margin-top: 10px;
-}
-
-.span3 {
-	margin-top: 10px;
-	border: 1px solid rgb(155, 131, 92);
-	border-radius: 10px;
-	padding: 5px;
-	-webkit-box-shadow: 10px 10px 25px #ccc;
-          -moz-box-shadow: 10px 10px 25px #ccc;
-          box-shadow: 10px 10px 25px #ccc;
 }
 
 footer {
-	background: rgba(183, 209, 232, .6);
+	background: rgb(183, 209, 232);
 	border-top: 1px solid rgb(155, 131, 92);
-	padding: 3px;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	z-index: 1;
 }
 
 .gmnoprint img { 
@@ -42,13 +30,13 @@ footer {
 }
 
 .make_bold{
-	color: rgb(155, 131, 92);
+	color: $darkBlue;
 	font-weight: bold;
 	font-size: 20px;
 }
 
 .link {
-	color: rgb(155, 131, 92);
+	color: $darkBlue;
 }
 
 .link:hover {
@@ -56,11 +44,11 @@ footer {
 }
 
 .name {
-	color: rgb(155, 131, 92);
+	color: $darkBlue;
 }
 
 .trucks {
-	color: rgb(155, 131, 92);
+	color: $darkBlue;
 }
 
 #picture {
@@ -74,6 +62,34 @@ footer {
 
 .story {
 	padding: 10px;
+}
+
+table, th, td {
+	border: 1px solid $darkBlue;
+	padding: 3px;
+	font-size: 10px;
+}
+
+td {
+	text-align: center;
+	color: r$darkBlue;
+}
+
+.sidebar {
+	z-index: 1;
+	position: fixed;
+	border: 1px solid rgba(155, 131, 92, .6);
+	border-radius: 10px;
+	background: rgba(231, 222, 207, .9);
+	left: 85px;
+	margin-top: 30px;
+	padding: 5px;
+}
+
+
+.the_map {
+	z-index: 0;
+	position: relative;
 }
 
 
