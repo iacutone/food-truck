@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828015006) do
+ActiveRecord::Schema.define(:version => 20130829185207) do
 
   create_table "locations", :force => true do |t|
     t.integer  "truck_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130828015006) do
     t.string   "twitter"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "truck_id"
   end
 
 end

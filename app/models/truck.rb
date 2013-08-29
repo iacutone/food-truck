@@ -10,7 +10,5 @@
 #
 
 class Truck < ActiveRecord::Base
-  # attr_accessible :name, :twitter
-
   has_one :location
 end

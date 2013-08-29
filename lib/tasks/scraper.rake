@@ -1,5 +1,7 @@
 require 'open-uri'
 require 'geocoder'
+require 'csv'
+require 'pry'
 
 namespace :twitter do
   task :andysitalianice => :environment do
@@ -762,6 +764,16 @@ namespace :twitter do
   end
   # :waffletruck and :souvlaki_truck removed
   task :all => [:andysitalianice, :biandangnyc, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven, :korilla_bbq, :mexico_blvd, :mexicue, :mikenwillies, :milktrucknyc, :morristruck, :munchie_mobile]
+end
+
+task :truck_production => :environment do
+  CSV.foreach('trucks.csv', :headers => true) do |row|
+    @truck = Truck.new
+    @truck.truck_id = row.truck_id
+    @truck.name = row.name
+    @truck.twitter = row.twitter
+    @truck.save
+  end
 end
 
 task :trucks => :environment do
