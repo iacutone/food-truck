@@ -30,10 +30,12 @@ body {
 
 .link {
 	color: $darkBlue;
+	padding-right: 30px;
 }
 
 .link:hover {
 	color: black;
+	color: $darkBlue;
 }
 
 .name {
@@ -64,8 +66,8 @@ body {
 
 .truck_table {
 	position: relative;
-	left: 320px;
-	top: 65px;
+	left: 550px;
+	bottom: 27px;
 }
 
 table, th, td {
@@ -85,8 +87,9 @@ td {
 	position: fixed;
 	border: 2px solid $mediumBrown;
 	border-radius: 10px;
-	background: rgba(255, 255, 255, .97);
-	left: 75px;
+	background: rgba(255, 255, 255, .95);
+	left: 60px;
+	top: 11px;
 	margin-top: 30px;
 	padding: 5px;
 }
@@ -103,7 +106,7 @@ td {
 	width:100%;
 }
 
-footer {
+#footer {
 	width:100%;
 	float:left;
 	padding: 10px 10px 10px 10px;

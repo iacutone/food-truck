@@ -121,7 +121,7 @@ module Parser
 	end 
 
 	def schnitz_things_north_south_street(data)
-		data.scan(/north|6th|park/i).db_format 
+		data.scan(/north end|6th|park/i).db_format 
 	end
 
 	def schnitz_things_east_west_street(data)
@@ -153,7 +153,7 @@ module Parser
 	end   
 
 	def palenque_north_south_street(data)
-		data.scan(/3|north|king|park/i).db_format 
+		data.scan(/3|north end|king|park/i).db_format 
 	end
 
 	def palenque_east_west_street(data)
@@ -161,7 +161,7 @@ module Parser
 	end
 
 	def nuchas_north_south_street(data)
-		data.scan(/north|6th|5th|park/i).db_format 
+		data.scan(/north end|6th|5th|park/i).db_format 
 	end
 
 	def nuchas_east_west_street(data)
@@ -169,7 +169,7 @@ module Parser
 	end  
 
 	def domo_taco_north_south_street(data)
-		data.scan(/north|park|broadway/i).db_format 
+		data.scan(/north end|park|broadway/i).db_format 
 	end
 
 	def domo_taco_east_west_street(data)
@@ -249,7 +249,7 @@ module Parser
 	end
 
 	def milktrucknyc_north_south_street(data)
-		data.scan(/north|5th|william/i).db_format 
+		data.scan(/north end|5th|william/i).db_format 
 	end
 
 	def milktrucknyc_east_west_street(data)
