@@ -9,7 +9,7 @@ module Parser
 	end 
 
 	def biandangnyc_north_south_street(data)
-		data.scan(/park|north/i).db_format 
+		data.scan(/park|north end/i).db_format 
 	end
 
 	def biandangnyc_east_west_street(data)
@@ -97,7 +97,7 @@ module Parser
 	end
 
 	def souvlaki_truck_north_south_street(data)
-		data.scan(/park|north/i).db_format  
+		data.scan(/park|north end/i).db_format  
 	end
 
 	def souvlaki_truck_east_west_street(data)
@@ -145,7 +145,7 @@ module Parser
 	end  
 
 	def phils_steaks_north_south_street(data)
-		data.scan(/madison|north/i).db_format
+		data.scan(/madison|north end/i).db_format
 	end
 
 	def phils_steaks_east_west_street(data)
@@ -193,7 +193,7 @@ module Parser
 	end 
 
 	def frites_meats_north_south_street(data)
-		data.scan(/pearl|6th|north|hudson/i).db_format 
+		data.scan(/pearl|6th|north end|hudson/i).db_format 
 	end
 
 	def frites_meats_east_west_street(data)
@@ -233,7 +233,7 @@ module Parser
 	end
 
 	def mexicue_north_south_street(data)
-		data.scan(/6th|north|5th|11th/i).db_format 
+		data.scan(/6th|north end|5th|11th/i).db_format 
 	end
 
 	def mexicue_east_west_street(data)
@@ -257,7 +257,7 @@ module Parser
 	end
 
 	def morristruck_north_south_street(data)
-		data.scan(/park|6th|north|madison/i).db_format 
+		data.scan(/park|6th|north end|madison/i).db_format 
 	end
 
 	def morristruck_east_west_street(data)
@@ -265,7 +265,7 @@ module Parser
 	end
 
 	def munchie_mobile_north_south_street(data)
-		data.scan(/5th|north|front|varick|broadway/i).db_format 
+		data.scan(/5th|north end|front|varick|broadway/i).db_format 
 	end
 
 	def munchie_mobile_east_west_street(data)
