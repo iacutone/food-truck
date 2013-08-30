@@ -68,6 +68,7 @@ body {
 	position: relative;
 	left: 550px;
 	bottom: 27px;
+	z-index: 5
 }
 
 table, th, td {
@@ -101,16 +102,22 @@ td {
 }
 
 .wrap {
-	position:relative;
-	margin:0 auto;
-	width:100%;
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	background: rgba(255, 255, 255, .5);
 }
 
 #footer {
 	width:100%;
-	float:left;
-	padding: 10px 10px 10px 10px;
+	float: center;
+	padding: 15px;
 	z-index: 10;
 }
+
+#footer {
+		position: relative;
+		z-index: 1;
+	}
 
 

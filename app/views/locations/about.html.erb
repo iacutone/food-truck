@@ -8,7 +8,7 @@
 			<th>Truck</th>
 			<th>Twitter</th>
 		</tr>
-		<%- @trucks.sort_by(&:id).each do |truck| %>
+		<%- @trucks.sort_by(&:name).each do |truck| %>
 			<tr>
 				<td><%= truck.name %></td>
 				<td><%= link_to truck.twitter, 'http://www.twitter.com/' + truck.twitter %></td>
