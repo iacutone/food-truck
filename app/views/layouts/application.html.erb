@@ -21,5 +21,12 @@
 <%= yield %>
 
 </body>
-
+<footer id='footer'>
+	<div class='wrap'>
+		<p class='name'>Created by: Eric Iacutone
+		<a href='http://twitter.com/iacutone'><%= image_tag "twitter.png", size: '20x20' %></a>
+		<%= link_to "About", about_path, class: 'link pull-right' %>
+		</p>
+	</div>
+</footer>
 </html>

@@ -20,13 +20,13 @@
 		  };
 
 		  var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-			
+
 			<%- @locations.each do |location| %>
 
 				var markerPosition = new google.maps.LatLng(<%= location.latitude %>, <%= location.longitude %>);
 
 				var image = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-				
+
 				var marker<%= location.id %> = new google.maps.Marker({
 			            position: markerPosition,
 			            map: map,
@@ -70,12 +70,4 @@
 
 		google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
-</div>
-	<div id='footer'>
-	<div class='wrap'>
-		<p class='name'>Created by: Eric Iacutone
-		<a href='http://twitter.com/iacutone'><%= image_tag "twitter.png", size: '20x20' %></a>
-		<%= link_to "About", about_path, class: 'link pull-right' %>
-		</p>
-	</div>
 </div>
