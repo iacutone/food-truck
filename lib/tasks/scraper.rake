@@ -22,7 +22,7 @@ namespace :twitter do
       @location.truck_id = 1
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil 
     end
   end
 
@@ -45,7 +45,7 @@ namespace :twitter do
       @location.truck_id = 2
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -68,7 +68,7 @@ namespace :twitter do
       @location.truck_id = 3
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -91,7 +91,7 @@ namespace :twitter do
       @location.truck_id = 4
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -114,7 +114,7 @@ namespace :twitter do
       @location.truck_id = 6
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -137,7 +137,7 @@ namespace :twitter do
       @location.truck_id = 10
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -160,7 +160,7 @@ namespace :twitter do
       @location.truck_id = 11
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -183,7 +183,7 @@ namespace :twitter do
       @location.truck_id = 14
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -206,7 +206,7 @@ namespace :twitter do
       @location.truck_id = 15
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -229,7 +229,7 @@ namespace :twitter do
       @location.truck_id = 16
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -252,7 +252,7 @@ namespace :twitter do
       @location.truck_id = 21
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -275,7 +275,7 @@ namespace :twitter do
       @location.truck_id = 24
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -298,7 +298,7 @@ namespace :twitter do
       @location.truck_id = 27
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -321,7 +321,7 @@ namespace :twitter do
       @location.truck_id = 28
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -344,7 +344,7 @@ namespace :twitter do
       @location.truck_id = 29
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -367,7 +367,7 @@ namespace :twitter do
       @location.truck_id = 30
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -390,7 +390,7 @@ namespace :twitter do
       @location.truck_id = 33
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -413,7 +413,7 @@ namespace :twitter do
       @location.truck_id = 31
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -436,7 +436,7 @@ namespace :twitter do
       @location.truck_id = 50
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -459,7 +459,7 @@ namespace :twitter do
       @location.truck_id = 49
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -482,7 +482,7 @@ namespace :twitter do
       @location.truck_id = 48
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -505,7 +505,7 @@ namespace :twitter do
       @location.truck_id = 47
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -528,7 +528,7 @@ namespace :twitter do
       @location.truck_id = 46
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -551,7 +551,7 @@ namespace :twitter do
       @location.truck_id = 45
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -574,7 +574,7 @@ namespace :twitter do
       @location.truck_id = 23
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -597,7 +597,7 @@ namespace :twitter do
       @location.truck_id = 35
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -620,7 +620,7 @@ namespace :twitter do
       @location.truck_id = 37
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -643,7 +643,7 @@ namespace :twitter do
       @location.truck_id = 39
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -666,7 +666,7 @@ namespace :twitter do
       @location.truck_id = 41
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -689,7 +689,7 @@ namespace :twitter do
       @location.truck_id = 43
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -712,7 +712,7 @@ namespace :twitter do
       @location.truck_id = 42
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -735,7 +735,7 @@ namespace :twitter do
       @location.truck_id = 53
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
 
@@ -758,11 +758,11 @@ namespace :twitter do
       @location.truck_id = 55
       @location.tweet_id = tweet.id
       @location.address = string_cleaner(@location.street1, @location.street2)
-      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0 || @location.latitude == nil
     end
   end
   # :waffletruck and :souvlaki_truck removed
-  task :all => [:andysitalianice, :biandangnyc, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven, :korilla_bbq, :mexico_blvd, :mexicue, :mikenwillies, :milktrucknyc, :morristruck, :munchie_mobile]
+  task :all => [:waffletruck, :souvlaki_truck,:andysitalianice, :biandangnyc, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven, :korilla_bbq, :mexico_blvd, :mexicue, :mikenwillies, :milktrucknyc, :morristruck, :munchie_mobile]
 end
 
 task :truck_production => :environment do
