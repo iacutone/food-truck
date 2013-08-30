@@ -125,7 +125,7 @@ module Parser
 	end
 
 	def schnitz_things_east_west_street(data)
-		data.scan(/vesey|49th|51st/i).db_format 
+		data.scan(/vesey st|49th|51st/i).db_format 
 	end       
 
 	def uncle_gussys_north_south_street(data)
