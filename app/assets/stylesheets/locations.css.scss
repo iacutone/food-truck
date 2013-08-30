@@ -68,7 +68,7 @@ body {
 	position: relative;
 	left: 550px;
 	bottom: 27px;
-	z-index: 5
+	z-index: 5;
 }
 
 table, th, td {
@@ -108,16 +108,5 @@ td {
 	background: rgba(255, 255, 255, .5);
 }
 
-#footer {
-	width:100%;
-	float: center;
-	padding: 15px;
-	z-index: 10;
-}
-
-#footer {
-	position: absolute;
-	z-index: 1;
-}
 
 
