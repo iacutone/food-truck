@@ -106,7 +106,19 @@ td {
 	margin: 0 auto;
 	width: 100%;
 	background: rgba(255, 255, 255, .5);
+	z-index: 10;
 }
 
+#footer {
+	width:100%;
+	float: center;
+	padding: 15px;
+	z-index: 10;
+}
+
+#footer {
+	position: absolute;
+	z-index: 10;
+}
 
 
