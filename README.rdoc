@@ -1,4 +1,5 @@
-** Food Truck  **
+[Food Truck Near Me](http://foodtrucknear.me)
 ***
 
-An app that will geolocate food truck positions via Twitter and Geocoder.  The app will then display food truck positions on a Google Map v3.
+
+Located the positions of food trucks in Manhattan with Twitter tweets, Geocoder and the Google Maps v3 API.

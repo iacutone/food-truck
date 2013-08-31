@@ -46,15 +46,11 @@ body {
 	color: $darkBlue;
 }
 
-#picture {
+body {
 	background-image: url('burger.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	z-index: 0;
 }
 
 .story {
@@ -111,4 +107,5 @@ td {
 	float:left;
 	padding: 10px 10px 10px 10px;
 	z-index: 10;
+	background: white;
 }
