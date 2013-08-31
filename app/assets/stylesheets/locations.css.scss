@@ -7,6 +7,11 @@
 $darkBlue: rgb(31, 56, 78);
 $mediumBrown: rgb(155, 131, 92);
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #map-canvas { 
 	height: 100%;
 	img {
@@ -96,15 +101,8 @@ td {
 	position: relative;
 }
 
-.wrap {
-	position:relative;
-	margin:0 auto;
-	width:100%;
-}
-
 #footer {
-	width:100%;
-	float:left;
+	width: 100%;
 	padding: 10px 10px 10px 10px;
 	z-index: 10;
 	background: white;
