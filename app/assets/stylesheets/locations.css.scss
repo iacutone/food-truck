@@ -46,7 +46,7 @@ body {
 	color: $darkBlue;
 }
 
-#picture {
+body {
 	background-image: url('burger.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
@@ -100,16 +100,11 @@ td {
 	position: relative;
 }
 
-.wrap {
-	
-	margin:0 auto;
-	width:100%;
-}
-
 #footer {
-	position:absolute;
+	position: absolute;
 	width:100%;
 	float:left;
 	padding: 10px 10px 10px 10px;
 	z-index: 10;
+	background: white;
 }
