@@ -272,6 +272,14 @@ module Parser
 		data.scan(/17th|vesey|wall|grand|55th/i).db_format 
 	end
 
+	def lukes_lobster_north_south_street(data)
+		data.scan(/park|broadway|madison|5th/i).db_format 
+	end
+
+	def lukes_lobster_east_west_street(data)
+		data.scan(/47th|55th|56th|17th/i).db_format 
+	end
+
 	def string_cleaner(street_one, street_two)
 		north_south_street = street_one.gsub('[', '').gsub(']','').gsub('"', '')
 		east_west_street = street_two.gsub('[', '').gsub(']','').gsub('"', '')

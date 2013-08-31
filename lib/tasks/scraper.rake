@@ -761,8 +761,31 @@ namespace :twitter do
       @location.save unless @location.street1.size == 0 || @location.street2.size == 0
     end
   end
-  # :waffletruck and :souvlaki_truck removed
-  task :all => [:andysitalianice, :biandangnyc, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven, :korilla_bbq, :mexico_blvd, :mexicue, :mikenwillies, :milktrucknyc, :morristruck, :munchie_mobile]
+
+  task :lukes_lobster => :environment do
+    include Parser
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET']
+      config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+    end
+
+    Twitter.user_timeline('NautiMobile').each do |tweet|
+      @location = Location.new
+      @location.twitter_text = tweet.text
+      @location.street1 = lukes_lobster_north_south_street(@location.twitter_text)
+      @location.street2 = lukes_lobster_east_west_street(@location.twitter_text)
+      @location.time = tweet.created_at
+      @location.truck_id = 56
+      @location.tweet_id = tweet.id
+      @location.address = string_cleaner(@location.street1, @location.street2)
+      @location.save unless @location.street1.size == 0 || @location.street2.size == 0
+    end
+  end
+
+  task :all => [:lukes_lobster, :waffletruck, :souvlaki_truck, :andysitalianice, :biandangnyc, :bigdsgrub, :blend_express, :chinese_mirch, :treats_truck, :taim_mobile, :taco_bite, :sweetery_nyc, :steaks_crepes, :kimchi_truck, :seoul_food, :schnitz_things, :uncle_gussys, :rickshawbar, :phils_steaks, :palenque, :nuchas, :domo_taco, :eddies_pizza, :fishing_shrimp, :frites_meats, :fun_buns, :hibachi_heaven, :korilla_bbq, :mexico_blvd, :mexicue, :mikenwillies, :milktrucknyc, :morristruck, :munchie_mobile]
 end
 
 task :truck_production => :environment do
