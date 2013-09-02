@@ -53,11 +53,13 @@
 				$('#<%= location.id %>').mouseover(function(){
 					google.maps.event.trigger(marker<%= location.id %>, 'mouseover');
 					marker<%= location.id %>.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+					marker<%= location.id %>.infowindow.open(map, marker<%= location.id %>);
 				});
 
 				$('#<%= location.id %>').mouseout(function(){
 					google.maps.event.trigger(marker<%= location.id %>, 'mouseout');
 					marker<%= location.id %>.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+					marker<%= location.id %>.infowindow.close(map, marker<%= location.id %>);
 				});
 
 				$('#<%= location.id %>').click(function(){
