@@ -34,7 +34,7 @@
 			            icon: image
 			          });
 
-				var contentString<%= location.id %> = '<div><p>Food Truck: <%= location.truck.name %></br>' + 'Tweeted at: <%= time_formater(location.time).strftime('%I:%M %p') %></p><%= location.twitter_text.gsub(/\n/,'').gsub('&amp', '&') %></div>';
+				var contentString<%= location.id %> = '<div><p>Food Truck: <%= location.truck.name %></br>' + '<br />Tweet: <%= location.twitter_text.gsub(/\n/,'').gsub('&amp', '&') %></p></div>';
 
 	      marker<%= location.id %>.infowindow = new google.maps.InfoWindow({
 	      	content: contentString<%= location.id %>,
