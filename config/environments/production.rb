@@ -65,4 +65,7 @@ FoodTruck::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   GA.tracker = "UA-38341110-4"
+
+  config.time_zone = 'Eastern Time (US & Canada)'
+  config.active_record.default_timezone = 'Eastern Time (US & Canada)'
 end
