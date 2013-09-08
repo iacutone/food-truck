@@ -14,6 +14,7 @@ gem 'twitter'
 gem 'geocoder'
 gem 'whenever'
 gem 'google-analytics-rails'
+gem "hexpress", "~> 1.0"
 
 group :test do
 	gem 'rspec-rails'
