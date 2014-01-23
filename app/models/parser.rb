@@ -298,6 +298,23 @@ module Parser
 		Time.parse(time)
 	end
 
+	def cleaner(address)
+		address.gsub(/street|st/i, '').gsub(/avenue|ave/i, '')
+	end
+
+	def street_combiner(address)
+		address.to_s.gsub('&', ' and ')
+	end
+
+	def address_parser
+		#does not work if there are no spaces in string
+		#b/w between need to be added and a /
+		#[[A-Za-z]+ & [A-Za-z]+]\S{1,} => might resolve no white space issue
+		address = (/[A-Za-z]+ [A-Za-z]+ and [A-Za-z]+ [A-Za-z]+ | [A-Za-z]+ [A-Za-z]+ & [A-Za-z]+ [A-Za-z]+/)
+		cleaned_address = cleaner(address)
+		street_combiner(cleaned_address)
+	end
+
 	def tommorrow_filter(data)
 		test = data.scan(/tomorrow/i)
 		if test == ['Tomorrow' || 'tomorrow']
