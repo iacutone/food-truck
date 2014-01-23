@@ -15,6 +15,7 @@ gem 'geocoder'
 gem 'whenever'
 gem 'google-analytics-rails'
 gem "hexpress", "~> 1.0"
+gem 'thin'
 
 group :test do
 	gem 'rspec-rails'
@@ -35,11 +36,6 @@ group :development do
 	gem 'pry-rails'
 	gem 'annotate'
 end
-
-group :production do
-	gem 'thin'
-end
-
 
 # Gems used only for assets and not required
 # in production environments by default.
