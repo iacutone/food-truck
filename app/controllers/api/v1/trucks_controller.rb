@@ -1,12 +1,12 @@
-class TrucksController < ApplicationController
-  # GET /trucks
+class Api::V1::TrucksController < ApplicationController
+  # GET api/v1/trucks
   def index
     @trucks = Truck.all
 
     render json: @trucks
   end
 
-  # GET /trucks/1
+  # GET api/v1/trucks/1
   def show
     @truck = Truck.find(params[:id])
 
