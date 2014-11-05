@@ -16,7 +16,10 @@ class Api::V1::TrucksController < ApplicationController
   # POST /trucks
   def create
     @truck = Truck.create(name: "Test")
-    @location = Location.create(longitude: params[:location][:longitude], latitude: params[:location][:latitude], truck_id: @truck.id)
+    @location = Location.create(longitude: params[:location][:longitude], 
+                                latitude: params[:location][:latitude], 
+                                truck_id: @truck.id)
+    head :no_content
   end
 
   # PUT /trucks/1
