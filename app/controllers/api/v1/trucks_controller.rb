@@ -16,10 +16,6 @@ class Api::V1::TrucksController < ApplicationController
 
   # POST /trucks
   def create
-    puts params[:location][:longitude]
-    puts params[:location][:latitude]
-    puts params[:location][:longitude].to_f
-    puts params[:location][:latitude].to_f
     @truck = Truck.create(name: "Test")
     @location = Location.create(longitude: params[:location][:longitude], 
                                 latitude: params[:location][:latitude], 

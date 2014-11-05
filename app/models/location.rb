@@ -16,9 +16,10 @@
 #
 
 class Location < ActiveRecord::Base
-  geocoded_by :address
-  after_validation :geocode
+  # geocoded_by :address
+  # after_validation :geocode
   scope :recent, lambda { where('time >= ? AND latitude IS NOT NULL', Time.now - 8.hours).uniq_by(&:address) }
+  attr_accessible :latitude, :longitude, :truck_id
   
 	belongs_to :truck
 end
