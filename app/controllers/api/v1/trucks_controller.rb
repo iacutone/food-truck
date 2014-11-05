@@ -1,4 +1,5 @@
 class Api::V1::TrucksController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
   # GET api/v1/trucks
   def index
     @trucks = Truck.all
