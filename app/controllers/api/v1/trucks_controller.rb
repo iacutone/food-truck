@@ -17,7 +17,7 @@ class Api::V1::TrucksController < ApplicationController
   def create
     puts params
     @truck = Truck.create(name: "Test")
-    @truck.location << Location.create(longitude: params[:location][:longitude], latitude: params[:location][:latitude])
+    @truck.location = Location.create(longitude: params[:location][:longitude], latitude: params[:location][:latitude])
     @truck.save
 
     if @truck.location
