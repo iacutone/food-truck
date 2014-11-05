@@ -15,16 +15,8 @@ class Api::V1::TrucksController < ApplicationController
 
   # POST /trucks
   def create
-    puts params
     @truck = Truck.create(name: "Test")
     @location = Location.create(longitude: params[:location][:longitude], latitude: params[:location][:latitude], truck_id: @truck.id)
-    @truck.reload
-
-    if @truck.location
-      render json: @truck.location, status: :created, location: @truck
-    else
-      render json: @truck.errors, status: :unprocessable_entity
-    end
   end
 
   # PUT /trucks/1
